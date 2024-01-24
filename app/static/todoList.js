@@ -57,11 +57,9 @@ function addTodoAJAX(todoText) {
     fetch('/add_todo', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
         },
-        body: new URLSearchParams({
-            'todo_text': todoText,
-        }),
+        body: JSON.stringify({ todo_text: todoText }),
     })
     .then(response => response.json())
     .then(data => {

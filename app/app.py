@@ -6,7 +6,7 @@ import certifi
 app = Flask(__name__)
 app.secret_key = 'chicken'
 client = MongoClient(
-    "mongodb+srv://chrisharry:imMUfedCpF2cAVRe@cluster0.su48ds0.mongodb.net/?retryWrites=true&w=majority", tlsCAFile=certifi.where())
+    "mongodb+srv://chrisspam1126:<YRuhr72Wn7u3RtEW@cluster0.cqxcczn.mongodb.net/?retryWrites=true&w=majority", tlsCAFile=certifi.where())
 db = client["Backend"]
 todoCollection = db["Todo"]
 
@@ -17,7 +17,7 @@ def home():
 
 @app.route('/add_todo', methods=['POST'])
 def add_todo():
-    todo_text = request.form.get('todo_text')
+    todo_text = request.json.get('todo_text')
     if todo_text:
         todoCollection.insert_one({'text': todo_text})
         return jsonify({'status': 'success'})
