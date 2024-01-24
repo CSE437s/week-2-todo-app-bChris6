@@ -39,6 +39,7 @@ function addTodo() {
     todoNode.appendChild(newNode);
     document.getElementById("TodoList").appendChild(todoNode);
     document.getElementById("TodoInput").value = "";
+    addTodoAJAX(itemToAdd);
 }
 
 function strikeOutItem(event) {
@@ -50,4 +51,27 @@ function deleteItem(event) {
     let clickedItem = event.target;
     let todoList = document.getElementById("TodoList");
     todoList.removeChild(clickedItem);
+}
+
+function addTodoAJAX(todoText) {
+    fetch('/add_todo', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+            'todo_text': todoText,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            console.log('Todo added successfully');
+        } else {
+            console.error('Error adding todo:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
