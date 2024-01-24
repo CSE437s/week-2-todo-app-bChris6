@@ -9,3 +9,4 @@ Then use python3 app.py
 
 
 You can click on an entry and strike through it when you are done with it.
+I did basics to integrate a database.

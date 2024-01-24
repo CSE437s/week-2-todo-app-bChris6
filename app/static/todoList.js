@@ -22,10 +22,10 @@ function switchMode() {
     var modeButton = document.getElementById("strikeOrDelete");
     if (currentStatus =="strikeThrough") {
         currentStatus = "delete";
-        modeButton.textContent = "Delete"
+        modeButton.textContent = "Strike Through"
     } else if (currentStatus =="delete") {
         currentStatus = "strikeThrough";
-        modeButton.textContent = "Strike Through"
+        modeButton.textContent = "Delete"
 
     } else {
         alert("Error. Please refresh page");
