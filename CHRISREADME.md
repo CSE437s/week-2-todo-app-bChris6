@@ -1,3 +1,5 @@
+Website: https://week-2-todo-app-b-chris6.vercel.app/
+
 Cd into app
 
 To start env use source env/bin/activate
